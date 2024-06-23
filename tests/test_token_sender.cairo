@@ -20,12 +20,12 @@ use serde::Serde;
 use box::BoxTrait;
 use integer::u256;
 
-use token_sender::erc20::mock_erc20::MockERC20;
-use token_sender::erc20::mock_erc20::MockERC20::{Event::ERC20Event};
-use token_sender::erc20::erc20::{IERC20Dispatcher, IERC20DispatcherTrait};
+use unimpaired_cairo::erc20::mock_erc20::MockERC20;
+use unimpaired_cairo::erc20::mock_erc20::MockERC20::{Event::ERC20Event};
+use unimpaired_cairo::erc20::erc20::{IERC20Dispatcher, IERC20DispatcherTrait};
 
-use token_sender::token_sender::sender::{ITokenSenderDispatcher, ITokenSenderDispatcherTrait};
-use token_sender::token_sender::sender::TransferRequest;
+use unimpaired_cairo::token_sender::sender::{ITokenSenderDispatcher, ITokenSenderDispatcherTrait};
+use unimpaired_cairo::token_sender::sender::TransferRequest;
 
 
 const INITIAL_SUPPLY: u256 = 1000000000;

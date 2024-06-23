@@ -6,7 +6,7 @@ use array::{ArrayTrait, SpanTrait};
 use zeroable::Zeroable;
 use debug::PrintTrait;
 
-use token_sender::erc20::erc20::{IERC20, IERC20Dispatcher, IERC20DispatcherTrait};
+use unimpaired_cairo::erc20::erc20::{IERC20, IERC20Dispatcher, IERC20DispatcherTrait};
 
 #[derive(Drop, Serde, Copy)]
 struct TransferRequest {
@@ -30,7 +30,7 @@ mod TokenSender {
     use zeroable::Zeroable;
     use array::{ArrayTrait, SpanTrait};
 
-    use token_sender::erc20::erc20::{IERC20, IERC20Dispatcher, IERC20DispatcherTrait};
+    use unimpaired_cairo::erc20::erc20::{IERC20, IERC20Dispatcher, IERC20DispatcherTrait};
 
     use debug::PrintTrait;
 
