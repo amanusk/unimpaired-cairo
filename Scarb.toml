@@ -13,10 +13,11 @@ casm=true
 
 
 [dependencies]
-starknet = "2.6.4"
-snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry.git", tag = "v0.25.0" }
+starknet = "2.6.3"
 openzeppelin = { git = "https://github.com/openzeppelin/cairo-contracts", tag = "v0.10.0"}
 
+[dev-dependencies]
+snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry.git", tag = "v0.25.0" }
 
 [cairo]
 sierra-replace-ids = true

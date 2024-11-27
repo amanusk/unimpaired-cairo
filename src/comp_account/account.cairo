@@ -3,7 +3,8 @@
 
 /// # Account Preset
 ///
-/// OpenZeppelin's basic account which can change its public key and declare, deploy, or call contracts.
+/// OpenZeppelin's basic account which can change its public key and declare, deploy, or call
+/// contracts.
 #[starknet::contract(account)]
 mod Account {
     use unimpaired_cairo::comp_account::account_component::AccountComponent;
