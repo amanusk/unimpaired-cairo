@@ -4,7 +4,7 @@ use sncast_std::{
 use starknet::{
     get_caller_address, contract_address_const, ContractAddress, get_contract_address, Into
 };
-use unimpaired_cairo::erc20::erc20::{IERC20Dispatcher, IERC20DispatcherTrait};
+use token_sender::erc20::erc20::{IERC20Dispatcher, IERC20DispatcherTrait};
 
 
 const INITIAL_SUPPLY: u256 = 1000000000;
