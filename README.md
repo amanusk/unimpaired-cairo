@@ -4,10 +4,19 @@
 
 Examples of Cairo vulnerabilities
 
-This repo requires `Scarb 2.9.1`
-This repo requires `sn-foundery 0.34.0`
+
+## Include examples
+* Missing OS check in account
+* felt overflow
+* Bad l1 handler
+
+
+
 
 ## Building
+
+This repo uses `Scarb 2.9.1`
+This repo uses `sn-foundery 0.34.0`
 
 ```
 scarb build
