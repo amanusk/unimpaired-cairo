@@ -1,9 +1,9 @@
-use starknet::{contract_address_const, ContractAddress,};
+use starknet::{contract_address_const, ContractAddress};
 
 
 use snforge_std::{
     declare, cheat_caller_address, ContractClassTrait, CheatSpan, EventSpyAssertionsTrait,
-    DeclareResultTrait, spy_events
+    DeclareResultTrait, spy_events,
 };
 
 
@@ -79,11 +79,11 @@ fn test_transfer_event() {
                     contract_address,
                     ERC20Component::Event::Transfer(
                         ERC20Component::Transfer {
-                            from: sender_account, to: target_account, value: transfer_value
-                        }
-                    )
-                )
-            ]
+                            from: sender_account, to: target_account, value: transfer_value,
+                        },
+                    ),
+                ),
+            ],
         );
 }
 
