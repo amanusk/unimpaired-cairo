@@ -1,15 +1,13 @@
-use starknet::{contract_address_const, ContractAddress,};
-
-
-use snforge_std::{declare, ContractClassTrait, DeclareResultTrait, L1HandlerTrait};
-use unimpaired_cairo::l1_badler::l1_badler::{IBadlerDispatcherTrait, IBadlerDispatcher};
+use snforge_std::{ContractClassTrait, DeclareResultTrait, L1HandlerTrait, declare};
+use starknet::ContractAddress;
+use unimpaired_cairo::l1_badler::l1_badler::{IBadlerDispatcher, IBadlerDispatcherTrait};
 
 
 fn setup() -> ContractAddress {
     let class_hash = declare("Badler").unwrap().contract_class();
 
     let mut calldata = ArrayTrait::new();
-    let owner_address: ContractAddress = contract_address_const::<1>();
+    let owner_address: ContractAddress = 1.try_into().unwrap();
     let l1_owner_address: felt252 = 1;
 
     owner_address.serialize(ref calldata);
@@ -28,7 +26,7 @@ fn test_l1_handler() {
     let l1_attacker_address: felt252 = 2;
 
     let l1_handle = L1HandlerTrait::new(
-        contract_address, 0x03c229a1c7f51f8a8afd2a6290ea9df174d241abeb932797eb06c91a18c920e8
+        contract_address, 0x03c229a1c7f51f8a8afd2a6290ea9df174d241abeb932797eb06c91a18c920e8,
     );
     let value: felt252 = 100;
     let calldata = array![value];

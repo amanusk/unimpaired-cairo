@@ -12,8 +12,8 @@ pub trait IBadler<TContractState> {
 /// Simple contract for managing balance.
 #[starknet::contract]
 mod Badler {
+    use starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};
     use starknet::{ContractAddress, get_caller_address};
-    use core::starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};
 
     #[storage]
     struct Storage {

@@ -1,7 +1,5 @@
-use starknet::{ContractAddress};
-
-
-use snforge_std::{declare, ContractClassTrait, DeclareResultTrait};
+use snforge_std::{ContractClassTrait, DeclareResultTrait, declare};
+use starknet::ContractAddress;
 use unimpaired_cairo::overflow::overflow::{IOverflowDispatcher, IOverflowDispatcherTrait};
 
 

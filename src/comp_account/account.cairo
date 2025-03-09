@@ -7,11 +7,11 @@
 /// contracts.
 #[starknet::contract(account)]
 pub mod AccountUpgradeable {
-    use crate::comp_account::account_component::AccountComponent;
     use openzeppelin_introspection::src5::SRC5Component;
     use openzeppelin_upgrades::UpgradeableComponent;
     use openzeppelin_upgrades::interface::IUpgradeable;
     use starknet::ClassHash;
+    use crate::comp_account::account_component::AccountComponent;
 
     component!(path: AccountComponent, storage: account, event: AccountEvent);
     component!(path: SRC5Component, storage: src5, event: SRC5Event);
@@ -33,7 +33,7 @@ pub mod AccountUpgradeable {
         #[substorage(v0)]
         pub src5: SRC5Component::Storage,
         #[substorage(v0)]
-        pub upgradeable: UpgradeableComponent::Storage
+        pub upgradeable: UpgradeableComponent::Storage,
     }
 
     #[event]
@@ -44,7 +44,7 @@ pub mod AccountUpgradeable {
         #[flat]
         SRC5Event: SRC5Component::Event,
         #[flat]
-        UpgradeableEvent: UpgradeableComponent::Event
+        UpgradeableEvent: UpgradeableComponent::Event,
     }
 
     #[constructor]

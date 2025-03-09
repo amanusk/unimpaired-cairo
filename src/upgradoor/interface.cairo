@@ -1,4 +1,4 @@
-use core::starknet::{ContractAddress, ClassHash};
+use starknet::{ClassHash, ContractAddress};
 
 /// Interface representing `HelloContract`.
 #[starknet::interface]

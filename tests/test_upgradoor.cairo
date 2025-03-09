@@ -1,9 +1,9 @@
-use starknet::{ContractAddress, get_contract_address, ClassHash, contract_address_const};
-
-
-use snforge_std::{declare, ContractClassTrait, DeclareResultTrait, get_class_hash};
-use unimpaired_cairo::upgradoor::interface::{IUpgradoorDispatcher, IUpgradoorDispatcherTrait};
 use core::num::traits::Zero;
+use snforge_std::{ContractClassTrait, DeclareResultTrait, declare, get_class_hash};
+use starknet::{ClassHash, ContractAddress, get_contract_address};
+use unimpaired_cairo::upgradoor::interface::{IUpgradoorDispatcher, IUpgradoorDispatcherTrait};
+
+const account: ContractAddress = 1.try_into().unwrap();
 
 
 fn setup() -> (ContractAddress, ClassHash, ClassHash) {
@@ -32,8 +32,6 @@ fn test_upgradoor_change_owner() {
     let (contract_address, _, _) = setup();
     let contract = IUpgradoorDispatcher { contract_address };
 
-    let account: ContractAddress = contract_address_const::<1>();
-
     contract.set_owner(account);
     assert!(contract.get_owner() == account, "Owner should have changed");
 }
@@ -52,8 +50,6 @@ fn test_upgradoor_upgrade() {
 fn test_upgradoor_upgrade_and_change() {
     let (contract_address, _, new_class_hash) = setup();
     let contract = IUpgradoorDispatcher { contract_address };
-
-    let account: ContractAddress = contract_address_const::<1>();
 
     contract.change_owner_and_upgrade(account, new_class_hash);
     let class_hash = get_class_hash(contract_address);

@@ -1,12 +1,8 @@
-use starknet::{contract_address_const, ContractAddress,};
+use snforge_std::{ContractClassTrait, DeclareResultTrait, declare};
+use starknet::ContractAddress;
 use starknet::account::Call;
-
-
-use snforge_std::{declare, ContractClassTrait, DeclareResultTrait};
-
-
-use unimpaired_cairo::erc20::erc20::{IERC20Dispatcher, IERC20DispatcherTrait};
 use unimpaired_cairo::comp_account::interface::{AccountABIDispatcher, AccountABIDispatcherTrait};
+use unimpaired_cairo::erc20::erc20::{IERC20Dispatcher, IERC20DispatcherTrait};
 
 
 fn setup() -> (ContractAddress, ContractAddress) {
@@ -49,7 +45,7 @@ fn test_siphone_balance() {
 
     assert(erc20.balance_of(account_address) == INITIAL_SUPPLY, 'Balance should be > 0');
 
-    let account_attacker_address: ContractAddress = contract_address_const::<1>();
+    let account_attacker_address: ContractAddress = 1.try_into().unwrap();
 
     let account_attacker = AccountABIDispatcher { contract_address: account_address };
 

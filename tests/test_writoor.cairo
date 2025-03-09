@@ -1,7 +1,5 @@
-use starknet::{ContractAddress, get_contract_address, contract_address_const};
-
-
-use snforge_std::{declare, ContractClassTrait, DeclareResultTrait, cheat_caller_address, CheatSpan};
+use snforge_std::{CheatSpan, ContractClassTrait, DeclareResultTrait, cheat_caller_address, declare};
+use starknet::{ContractAddress, get_contract_address};
 use unimpaired_cairo::writoor::writoor::{IWritoorDispatcher, IWritoorDispatcherTrait};
 
 
@@ -23,7 +21,7 @@ fn test_mint() {
     let contract_address = setup();
     let contract = IWritoorDispatcher { contract_address };
 
-    let target_address: ContractAddress = contract_address_const::<1>();
+    let target_address: ContractAddress = 1.try_into().unwrap();
     contract.mint(target_address, 10_u256);
     assert!(contract.get_balance(target_address) == 10_u256, "Wrong balance");
 }
@@ -34,10 +32,10 @@ fn test_transfer() {
     let contract_address = setup();
     let contract = IWritoorDispatcher { contract_address };
 
-    let sender_address: ContractAddress = contract_address_const::<1>();
+    let sender_address: ContractAddress = 1.try_into().unwrap();
     contract.mint(sender_address, 10_u256);
 
-    let target_address: ContractAddress = contract_address_const::<2>();
+    let target_address: ContractAddress = 2.try_into().unwrap();
 
     cheat_caller_address(contract_address, 1.try_into().unwrap(), CheatSpan::TargetCalls(1));
     let amount: u256 = 1;

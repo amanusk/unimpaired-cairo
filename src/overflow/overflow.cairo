@@ -11,7 +11,7 @@ pub trait IOverflow<TContractState> {
 /// Simple contract for managing balance.
 #[starknet::contract]
 mod Overflow {
-    use core::starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};
+    use starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};
 
     #[storage]
     struct Storage {

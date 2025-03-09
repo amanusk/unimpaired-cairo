@@ -1,4 +1,4 @@
-use core::starknet::{ContractAddress};
+use starknet::ContractAddress;
 
 #[starknet::interface]
 pub trait IWritoor<TContractState> {
@@ -12,11 +12,11 @@ pub trait IWritoor<TContractState> {
 /// Simple contract for managing balance.
 #[starknet::contract]
 mod Writoor {
-    use core::starknet::storage::{
-        StoragePointerReadAccess, StoragePointerWriteAccess, StorageMapReadAccess, Map,
-        StorageMapWriteAccess,
+    use starknet::storage::{
+        Map, StorageMapReadAccess, StorageMapWriteAccess, StoragePointerReadAccess,
+        StoragePointerWriteAccess,
     };
-    use core::starknet::{ContractAddress, get_caller_address};
+    use starknet::{ContractAddress, get_caller_address};
 
     #[storage]
     struct Storage {

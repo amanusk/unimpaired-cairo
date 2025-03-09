@@ -1,12 +1,12 @@
 /// Simple contract for managing balance.
 #[starknet::contract]
 mod Upgradoor2 {
-    use core::starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};
-    use core::starknet::{
-        ContractAddress, get_caller_address, ClassHash, SyscallResultTrait, get_contract_address,
+    use core::num::traits::Zero;
+    use starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};
+    use starknet::{
+        ClassHash, ContractAddress, SyscallResultTrait, get_caller_address, get_contract_address,
     };
     use crate::upgradoor::interface::{IUpgradoor, IUpgradoorDispatcher, IUpgradoorDispatcherTrait};
-    use core::num::traits::Zero;
 
     #[storage]
     struct Storage {
